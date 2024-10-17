@@ -1,0 +1,336 @@
+/* General Styles */
+body {
+    font-family: 'Dela Gothic One', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #600d0d, #9e1621, #621b1b);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    width: 60px;
+}
+
+.title h1 {
+    color: white;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.title h2 {
+    color: white;
+    margin: 0;
+    font-size: 1rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #e35c6a;
+    border-radius: 5px;
+}
+
+/* Cart Icon with Count */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #9e1621;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Notification for Adding Products */
+.notification {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #9e1621;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 2000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Menus Section */
+.menus-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 20px; /* Adjusted for fixed navbar */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kiosk-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Display 4 columns */
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.kiosk-menu {
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kiosk-menu h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #9e1621;
+}
+
+.kiosk-menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.kiosk-menu ul li {
+    font-size: 1.1rem;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.kiosk-menu ul li button {
+    background-color: #9e1621;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.kiosk-menu ul li button:hover {
+    background-color: #e35c6a;
+    transform: scale(1.05);
+}
+
+.kiosk-menu:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto; /* Ensure modal can scroll if content is too long */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Slightly larger modal */
+    text-align: left;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Cart Modal Content */
+#cart-items {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #9e1621;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px; 
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e35c6a;
+}
+
+
+/* Payment and Delivery Options */
+#payment-options-modal {
+    margin-top: 20px;
+}
+
+#payment-options-modal h4 {
+    margin-bottom: 10px;
+    color: #9e1621;
+    text-align: left;
+}
+
+input[type="radio"], input[type="text"] {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+/* Modal for Order Summary */
+#order-summary-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+}
+
+#order-summary-modal .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+#order-summary {
+    margin-top: 20px;
+}
+
+.close-summary {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-summary:hover, .close-summary:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .kiosk-wrapper {
+        grid-template-columns: 1fr; /* Display 1 column in smaller screens */
+    }
+
+    .cart-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .form-box h2 {
+        font-size: 1.5rem;
+    }
+}

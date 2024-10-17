@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV-YA - Menus</title>
+    <link rel="stylesheet" href="menus-cart-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Univalle_bol_cbb_logo.png" alt="Logo"
+                class="logo">
+            <div class="title">
+                <h1>UV-YA</h1>
+                <h2>Pedidos al momento</h2>
+            </div>
+            <div class="cart-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito" id="cart-button">
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Notification for adding products -->
+    <div id="add-to-cart-notification" class="notification">
+        Producto añadido al carrito!
+    </div>
+
+    <!-- Notifications for order status -->
+    <div id="order-status-notification" class="notification"></div>
+
+    <section class="menus-container">
+        <div class="kiosk-wrapper">
+            <div class="kiosk-menu">
+                <h3>Arbolada</h3>
+                <ul>
+                    <li>Iced Americano - 12 Bs <button onclick="addToCart('Iced Americano', 12)">Añadir</button></li>
+                    <li>Matcha - 14 Bs <button onclick="addToCart('Matcha', 14)">Añadir</button></li>
+                    <li>Sandwich Philadelphia - 18 Bs <button
+                            onclick="addToCart('Sandwich Philadelphia', 18)">Añadir</button></li>
+                </ul>
+            </div>
+
+            <div class="kiosk-menu">
+                <h3>Tengo Hambre!</h3>
+                <ul>
+                    <li>Sushi - 20 Bs <button onclick="addToCart('Sushi', 20)">Añadir</button></li>
+                    <li>Soda - 7 Bs <button onclick="addToCart('Soda', 7)">Añadir</button></li>
+                    <li>Hamburguesa - 20 Bs <button onclick="addToCart('Hamburguesa', 20)">Añadir</button></li>
+                </ul>
+            </div>
+
+            <div class="kiosk-menu">
+                <h3>Bless</h3>
+                <ul>
+                    <li>Sandwich Milanesa - 15 Bs <button onclick="addToCart('Sandwich Milanesa', 15)">Añadir</button>
+                    </li>
+                    <li>Empanada - 8 Bs <button onclick="addToCart('Empanada', 8)">Añadir</button></li>
+                    <li>Limonada - 5 Bs <button onclick="addToCart('Limonada', 5)">Añadir</button></li>
+                </ul>
+            </div>
+
+            <div class="kiosk-menu">
+                <h3>Cabrales</h3>
+                <ul>
+                    <li>Sandwich Simple - 10 Bs <button onclick="addToCart('Sandwich Simple', 10)">Añadir</button></li>
+                    <li>Empanada - 8 Bs <button onclick="addToCart('Empanada', 8)">Añadir</button></li>
+                    <li>Limonada - 5 Bs <button onclick="addToCart('Limonada', 5)">Añadir</button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Warning -->
+    <div id="cart-warning-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-warning">&times;</span>
+            <p id="cart-warning-message"></p>
+            <button id="close-warning-button">Aceptar</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for Cart -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <p id="order-total-modal">Total: 0 Bs</p>
+            <button onclick="placeOrder()">Confirmar Pedido</button>
+
+            <div id="payment-options-modal">
+                <h4>Opciones de Pago</h4>
+                <label><input type="radio" name="payment-method" value="cash" checked> Efectivo</label>
+                <label><input type="radio" name="payment-method" value="qr"> QR</label>
+
+                <h4>Opciones de Entrega</h4>
+                <label><input type="radio" name="delivery-method" value="restaurant" checked> Restaurante</label>
+                <label><input type="radio" name="delivery-method" value="student"> Estudiante</label>
+                <input type="text" id="student-name" placeholder="Nombre del estudiante" style="display: none;">
+
+                <h4>Momento de Pago</h4>
+                <label><input type="radio" name="payment-time" value="before" checked> Antes de la entrega</label>
+                <label><input type="radio" name="payment-time" value="after"> Después de la entrega</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for QR Payment -->
+    <div id="qr-payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-qr">&times;</span>
+            <h2>Pagar con QR</h2>
+            <div id="qr-image">
+                <!-- Aquí insertas la imagen del QR -->
+                <img src="../img/imagen-qr.jpg" alt="Código QR" id="qr-code-image">
+            </div>
+            <p>Por favor, sube el comprobante de tu pago.</p>
+            <input type="file" id="payment-receipt" accept="image/*">
+            <button id="confirm-payment-button">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+
+</html>
